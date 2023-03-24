@@ -1,1 +1,1 @@
-TODO: set up i18n
+[ ] TODO: set up i18n
