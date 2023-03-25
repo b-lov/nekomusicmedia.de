@@ -23,6 +23,9 @@ export const baseLocale = 'de'
 
 /** @type { Locales[] } */
 export const locales = [
+	'de',
+	'en',
+	'ru'
 ]
 
 /**
