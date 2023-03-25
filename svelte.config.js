@@ -6,7 +6,10 @@ const config = {
     adapter: adapter({
       edge: false,
       split: false
-    })
+    }),
+    alias: {
+      $i18n: 'src/i18n'
+    }
   }
 };
 
