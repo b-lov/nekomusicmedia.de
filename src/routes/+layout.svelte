@@ -12,7 +12,7 @@
 </script>
 
 <svelte:head>
-  <title>{$page.data.title || 'typesafe-i18n'}</title>
+  <title>{$page.data.title || 'my site'}</title>
   <HeadHrefLangs />
 </svelte:head>
 
