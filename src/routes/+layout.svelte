@@ -12,7 +12,7 @@
 </script>
 
 <svelte:head>
-  <title>{$page.data.title || 'my site'}</title>
+  <title>{$page.data.title || 'NEKO Music & Media GmbH'}</title>
   <HeadHrefLangs />
 </svelte:head>
 
