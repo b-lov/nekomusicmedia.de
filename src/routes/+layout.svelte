@@ -1,4 +1,5 @@
 <script>
+  import '../app.css';
   import { page } from '$app/stores';
   import { setLocale } from '$i18n/i18n-svelte';
   import LocaleSwitcher from '$lib/LocaleSwitcher.svelte';
@@ -11,7 +12,7 @@
 </script>
 
 <svelte:head>
-  <title>{$page.data.title || 'typesafe-i18n'}</title>
+  <title>{$page.data.title || 'my site'}</title>
   <HeadHrefLangs />
 </svelte:head>
 

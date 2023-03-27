@@ -20,11 +20,6 @@ type RootTranslation = {
 	 * @param {string} name
 	 */
 	HI: RequiredParams<'name'>
-	/**
-	 * D​i​e​s​e​s​ ​L​o​g​g​i​n​g​ ​w​u​r​d​e​ ​v​o​n​ ​'​{​f​i​l​e​N​a​m​e​}​'​ ​a​u​f​g​e​r​u​f​e​n
-	 * @param {unknown} fileName
-	 */
-	log: RequiredParams<'fileName'>
 }
 
 export type TranslationFunctions = {
@@ -32,10 +27,6 @@ export type TranslationFunctions = {
 	 * Hallo {name}! Bitte hinterlasse einen Stern, wenn dir das Projekt gefällt
 	 */
 	HI: (arg: { name: string }) => LocalizedString
-	/**
-	 * Dieses Logging wurde von '{fileName}' aufgerufen
-	 */
-	log: (arg: { fileName: unknown }) => LocalizedString
 }
 
 export type Formatters = {}

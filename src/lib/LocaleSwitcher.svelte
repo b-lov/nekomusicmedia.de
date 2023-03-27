@@ -48,9 +48,7 @@
 <svelte:window on:popstate={handlePopStateEvent} />
 
 {#each locales as l}
-  <div>
-    <a class:active={l === $locale} href={`${replaceLocaleInUrl($page.url, l)}`}>
-      {l}
-    </a>
-  </div>
+  <a href={`${replaceLocaleInUrl($page.url, l)}`}>
+    {l}
+  </a>
 {/each}
