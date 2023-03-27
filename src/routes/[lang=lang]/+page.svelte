@@ -3,5 +3,5 @@
 </script>
 
 <h2>
-  {$LL.HI({ name: 'Svelte' })}
+  {$LL.contact_button()}
 </h2>
