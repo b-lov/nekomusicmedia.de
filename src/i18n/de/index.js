@@ -6,8 +6,9 @@
 
 /** @satisfies { BaseTranslation } */
 const de = {
-	// TODO: your translations go here
-	HI: 'Hallo {name:string}! Bitte hinterlasse einen Stern, wenn dir das Projekt gefällt: https://github.com/ivanhofer/typesafe-i18n',
-}
+  // TODO: your translations go here
+  HI: 'Hallo {name:string}! Bitte hinterlasse einen Stern, wenn dir das Projekt gefällt',
+  log: `Dieses Logging wurde von '{fileName}' aufgerufen`
+};
 
-export default de
+export default de;

@@ -16,17 +16,26 @@ export type Translations = RootTranslation
 
 type RootTranslation = {
 	/**
-	 * H​a​l​l​o​ ​{​n​a​m​e​}​!​ ​B​i​t​t​e​ ​h​i​n​t​e​r​l​a​s​s​e​ ​e​i​n​e​n​ ​S​t​e​r​n​,​ ​w​e​n​n​ ​d​i​r​ ​d​a​s​ ​P​r​o​j​e​k​t​ ​g​e​f​ä​l​l​t​:​ ​h​t​t​p​s​:​/​/​g​i​t​h​u​b​.​c​o​m​/​i​v​a​n​h​o​f​e​r​/​t​y​p​e​s​a​f​e​-​i​1​8​n
+	 * H​a​l​l​o​ ​{​n​a​m​e​}​!​ ​B​i​t​t​e​ ​h​i​n​t​e​r​l​a​s​s​e​ ​e​i​n​e​n​ ​S​t​e​r​n​,​ ​w​e​n​n​ ​d​i​r​ ​d​a​s​ ​P​r​o​j​e​k​t​ ​g​e​f​ä​l​l​t
 	 * @param {string} name
 	 */
 	HI: RequiredParams<'name'>
+	/**
+	 * D​i​e​s​e​s​ ​L​o​g​g​i​n​g​ ​w​u​r​d​e​ ​v​o​n​ ​'​{​f​i​l​e​N​a​m​e​}​'​ ​a​u​f​g​e​r​u​f​e​n
+	 * @param {unknown} fileName
+	 */
+	log: RequiredParams<'fileName'>
 }
 
 export type TranslationFunctions = {
 	/**
-	 * Hallo {name}! Bitte hinterlasse einen Stern, wenn dir das Projekt gefällt: https://github.com/ivanhofer/typesafe-i18n
+	 * Hallo {name}! Bitte hinterlasse einen Stern, wenn dir das Projekt gefällt
 	 */
 	HI: (arg: { name: string }) => LocalizedString
+	/**
+	 * Dieses Logging wurde von '{fileName}' aufgerufen
+	 */
+	log: (arg: { fileName: unknown }) => LocalizedString
 }
 
 export type Formatters = {}
