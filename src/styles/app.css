@@ -1,0 +1,24 @@
+@import 'tailwindcss/base';
+@import './fonts/plex.css';
+@import './fonts/oswald.css';
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button {
+    @apply font-oswald px-6 py-4 font-normal shadow-md tracking-wide transition duration-300
+		focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+  }
+  .button-dark {
+    @apply button bg-gray-800 hover:bg-gray-600 text-gray-100;
+  }
+  .button-light {
+    @apply button bg-gray-100 hover:bg-gray-300 text-gray-800;
+  }
+}
+
+@layer utilities {
+  .footer-shadow {
+    box-shadow: 0 -20px 25px -5px rgb(0 0 0 / 10%), 0 -8px 10px -6px rgb(0 0 0 / 10%);
+  }
+}
