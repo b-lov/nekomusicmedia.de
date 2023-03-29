@@ -1,3 +1,186 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* oswald-200 - latin_cyrillic */
+  @font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 200;
+    src: local(''), url('/fonts/oswald-v49-latin_cyrillic-200.woff2') format('woff2'),
+      url('/fonts/oswald-v49-latin_cyrillic-200.woff') format('woff');
+  }
+  /* oswald-300 - latin_cyrillic */
+  @font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''), url('/fonts/oswald-v49-latin_cyrillic-300.woff2') format('woff2'),
+      url('/fonts/oswald-v49-latin_cyrillic-300.woff') format('woff');
+  }
+  /* oswald-regular - latin_cyrillic */
+  @font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('/fonts/oswald-v49-latin_cyrillic-regular.woff2') format('woff2'),
+      url('/fonts/oswald-v49-latin_cyrillic-regular.woff') format('woff');
+  }
+  /* oswald-500 - latin_cyrillic */
+  @font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''), url('/fonts/oswald-v49-latin_cyrillic-500.woff2') format('woff2'),
+      url('/fonts/oswald-v49-latin_cyrillic-500.woff') format('woff');
+  }
+  /* oswald-600 - latin_cyrillic */
+  @font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 600;
+    src: local(''), url('/fonts/oswald-v49-latin_cyrillic-600.woff2') format('woff2'),
+      url('/fonts/oswald-v49-latin_cyrillic-600.woff') format('woff');
+  }
+  /* oswald-700 - latin_cyrillic */
+  @font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('/fonts/oswald-v49-latin_cyrillic-700.woff2') format('woff2'),
+      url('/fonts/oswald-v49-latin_cyrillic-700.woff') format('woff');
+  }
+
+  /* ibm-plex-sans-100 - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 100;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-100.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-100.woff') format('woff');
+  }
+  /* ibm-plex-sans-100italic - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: italic;
+    font-weight: 100;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-100italic.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-100italic.woff') format('woff');
+  }
+  /* ibm-plex-sans-200 - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 200;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-200.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-200.woff') format('woff');
+  }
+  /* ibm-plex-sans-200italic - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: italic;
+    font-weight: 200;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-200italic.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-200italic.woff') format('woff');
+  }
+  /* ibm-plex-sans-300 - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-300.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-300.woff') format('woff');
+  }
+  /* ibm-plex-sans-300italic - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: italic;
+    font-weight: 300;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-300italic.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-300italic.woff') format('woff');
+  }
+  /* ibm-plex-sans-regular - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-regular.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-regular.woff') format('woff');
+  }
+  /* ibm-plex-sans-italic - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-italic.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-italic.woff') format('woff');
+  }
+  /* ibm-plex-sans-500 - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-500.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-500.woff') format('woff');
+  }
+  /* ibm-plex-sans-500italic - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: italic;
+    font-weight: 500;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-500italic.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-500italic.woff') format('woff');
+  }
+  /* ibm-plex-sans-600 - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-600.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-600.woff') format('woff');
+  }
+  /* ibm-plex-sans-600italic - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: italic;
+    font-weight: 600;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-600italic.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-600italic.woff') format('woff');
+  }
+  /* ibm-plex-sans-700 - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-700.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-700.woff') format('woff');
+  }
+  /* ibm-plex-sans-700italic - latin_cyrillic */
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: local(''), url('/fonts/ibm-plex-sans-v14-latin_cyrillic-700italic.woff2') format('woff2'),
+      url('/fonts/ibm-plex-sans-v14-latin_cyrillic-700italic.woff') format('woff');
+  }
+}
+
+@layer components {
+  .button {
+    @apply font-oswald px-6 py-4 font-normal shadow-md tracking-wide transition duration-300
+		focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+  }
+  .button-dark {
+    @apply button bg-gray-800 hover:bg-gray-600 text-gray-100;
+  }
+  .button-light {
+    @apply button bg-gray-100 hover:bg-gray-300 text-gray-800;
+  }
+}
+
+@layer utilities {
+  .footer-shadow {
+    box-shadow: 0 -20px 25px -5px rgb(0 0 0 / 10%), 0 -8px 10px -6px rgb(0 0 0 / 10%);
+  }
+}
