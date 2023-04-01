@@ -7,10 +7,10 @@
 /** @satisfies { Translation } */
 const ru = {
   contact_button: 'Связаться сейчас',
-  contact_button_offer: 'kostenlos Angebot anfordern',
+  contact_button_offer: 'Получить предложение',
   index: {
-    title: 'Startseite',
-    heading: 'Dein Auftrag ist unser Antrieb',
+    title: 'Главная',
+    heading: 'Твой заказ - наша мотивация',
     subheading:
       'NEKO ist Dein kompetenter und zuverlässiger Full-Service-Partner im Bereich Veranstaltungstechnik und -management',
     img_hero: '/img/index/webp/hero.webp',
@@ -42,7 +42,7 @@ const ru = {
     }
   },
   about: {
-    title: 'Über uns',
+    title: 'О нас',
     heading: 'Erfahren. Persönlich. Vielseitig. Servicestark.',
     subheading: 'Unsere Leitsätze für Deinen Erfolg',
     img_hero: '/img/about/webp/hero.webp',
@@ -78,7 +78,7 @@ const ru = {
     }
   },
   services: {
-    title: 'Leistungen',
+    title: 'Услуги',
     heading: 'Alles rund um Dein Event',
     subheading: 'Schöpfe aus unserem umfangreichen Serviceangebot',
     img_hero: '/img/services/webp/hero.webp',
@@ -198,7 +198,7 @@ const ru = {
     }
   },
   catalog: {
-    title: 'Mietkatalog',
+    title: 'Аренда',
     heading: 'Mieten statt kaufen',
     subheading: 'Wir stellen eine breite Palette an Equipment für Dein Event zur Verfügung.',
     img_hero: '/img/catalog/webp/hero.webp',
@@ -264,7 +264,7 @@ const ru = {
     }
   },
   contact: {
-    title: 'Kontakt',
+    title: 'Контакт',
     heading: 'Melde Dich',
     subheading:
       'Hinterlasse eine Nachticht mit Deinem Anliegen. Wir antworten so schnell wie möglich, versprochen!',

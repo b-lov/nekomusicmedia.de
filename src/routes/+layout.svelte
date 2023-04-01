@@ -2,7 +2,6 @@
   import '../styles/app.css';
   import { page } from '$app/stores';
   import { setLocale } from '$i18n/i18n-svelte';
-  import LocaleSwitcher from '$lib/LocaleSwitcher.svelte';
   import HeadHrefLangs from '$lib/HeadHrefLangs.svelte';
 
   export let data;
@@ -16,8 +15,4 @@
   <HeadHrefLangs />
 </svelte:head>
 
-<LocaleSwitcher />
-
-<main>
-  <slot />
-</main>
+<slot />
