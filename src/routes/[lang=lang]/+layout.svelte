@@ -1,5 +1,5 @@
 <script>
-  // import Footer from '$lib/Footer.svelte';
+  import Footer from './Footer.svelte';
   import Header from './Header/_main.svelte';
 
   // use this if you want to offset header
@@ -15,5 +15,5 @@
   <main class="pt-20 flex-grow">
     <slot />
   </main>
-  <!-- <Footer /> -->
+  <Footer />
 </div>
