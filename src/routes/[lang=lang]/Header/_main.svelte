@@ -35,10 +35,8 @@
   <div class="h-20 flex justify-between items-center pl-3">
     <a href="/{$locale}"><Icon class="fill-gray-800" size={3.2} /></a>
     <Hamburger />
-    <div class="flex flex-row items-center">
-      <DeskNav />
-      <!-- <LocaleSwitcher /> -->
-    </div>
+    <DeskNav />
+    <!-- <LocaleSwitcher /> -->
   </div>
   <MobileNav />
 </header>
