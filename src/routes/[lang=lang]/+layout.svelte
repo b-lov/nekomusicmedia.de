@@ -1,6 +1,6 @@
 <script>
   import Footer from './Footer.svelte';
-  import Header from './Header/_main.svelte';
+  import Header from './Header/main.svelte';
 
   // use this if you want to offset header
   /** @param { HTMLElement } node */
