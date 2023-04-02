@@ -3,7 +3,7 @@
   import Icon from '$lib/Icon.svelte';
   import Hamburger from './Hamburger.svelte';
   import DeskNav from './DeskNav.svelte';
-  import LocaleSwitcher from './LocaleSwitcher.svelte';
+  // import LocaleSwitcher from './LocaleSwitcher.svelte';
   import MobileNav, { mobileNavOpen } from './MobileNav.svelte';
 
   let headerState = 'show';
