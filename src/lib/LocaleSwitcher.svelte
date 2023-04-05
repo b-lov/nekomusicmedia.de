@@ -5,7 +5,7 @@
   import { setLocale, locale } from '$i18n/i18n-svelte';
   import { locales } from '$i18n/i18n-util';
   import { loadLocaleAsync } from '$i18n/i18n-util.async';
-  import { replaceLocaleInUrl } from '../utils';
+  import { replaceLocaleInUrl } from 'utils.js';
 
   /** @param {Locales} newLocale */
   const switchLocale = async (newLocale, updateHistoryState = true) => {
@@ -47,8 +47,10 @@
 
 <svelte:window on:popstate={handlePopStateEvent} />
 
-{#each locales as l}
-  <a href={`${replaceLocaleInUrl($page.url, l)}`}>
-    {l}
-  </a>
-{/each}
+<div class="flex gap-2">
+  {#each locales as l}
+    <a type="button" href={`${replaceLocaleInUrl($page.url, l)}`}>
+      {l}
+    </a>
+  {/each}
+</div>
