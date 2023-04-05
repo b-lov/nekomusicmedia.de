@@ -21,7 +21,7 @@
     </p>
   </hgroup>
 
-  <!-- <GoogleMap /> -->
+  <GoogleMap />
 
   <address
     class="font-oswald font-light not-italic text-xl text-gray-500 leading-normal tracking-wide"

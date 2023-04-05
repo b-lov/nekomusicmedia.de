@@ -7,15 +7,15 @@
  * @typedef { import('./i18n-types').Translations } Translations
  */
 
-import { initFormatters } from './formatters'
+import { initFormatters } from './formatters';
 
-import { loadedFormatters, loadedLocales, locales } from './i18n-util'
+import { loadedFormatters, loadedLocales, locales } from './i18n-util';
 
 const localeTranslationLoaders = {
-	de: () => import('./de'),
-	en: () => import('./en'),
-	ru: () => import('./ru'),
-}
+  de: () => import('./de'),
+  en: () => import('./en'),
+  ru: () => import('./ru')
+};
 
 /**
  * @param { Locales } locale
@@ -23,29 +23,30 @@ const localeTranslationLoaders = {
  * @return { Translations }
  */
 const updateDictionary = (locale, dictionary) =>
-	loadedLocales[locale] = { ...loadedLocales[locale], ...dictionary }
+  (loadedLocales[locale] = { ...loadedLocales[locale], ...dictionary });
 
 /**
  * @param { Locales } locale
  * @return { Promise<Translations> }
  */
 export const importLocaleAsync = async (locale) =>
-	/** @type { Translations } */ (/** @type { unknown } */ ((await localeTranslationLoaders[locale]()).default))
+  /** @type { Translations } */ (
+    /** @type { unknown } */ ((await localeTranslationLoaders[locale]()).default)
+  );
 
 /**
  * @param { Locales } locale
  * @return { Promise<void> }
  */
 export const loadLocaleAsync = async (locale) => {
-	updateDictionary(locale, await importLocaleAsync(locale))
-	loadFormatters(locale)
-}
+  updateDictionary(locale, await importLocaleAsync(locale));
+  loadFormatters(locale);
+};
 
-export const loadAllLocalesAsync = () => Promise.all(locales.map(loadLocaleAsync))
+export const loadAllLocalesAsync = () => Promise.all(locales.map(loadLocaleAsync));
 
 /**
  * @param { Locales } locale
  * @return { void }
  */
-export const loadFormatters = (locale) =>
-	void (loadedFormatters[locale] = initFormatters(locale))
+export const loadFormatters = (locale) => void (loadedFormatters[locale] = initFormatters(locale));

@@ -11,10 +11,10 @@
  * @return { Formatters }
  */
 export const initFormatters = (locale) => {
-	/** @type { Formatters } */
-	const formatters = {
-		// add your formatter functions here
-	}
+  /** @type { Formatters } */
+  const formatters = {
+    // add your formatter functions here
+  };
 
-	return formatters
-}
+  return formatters;
+};

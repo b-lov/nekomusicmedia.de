@@ -10,13 +10,13 @@
  * @typedef { import('./i18n-types').Translations } Translations
  */
 
-import { initI18nSvelte } from 'typesafe-i18n/svelte'
+import { initI18nSvelte } from 'typesafe-i18n/svelte';
 
-import { loadedFormatters, loadedLocales } from './i18n-util'
+import { loadedFormatters, loadedLocales } from './i18n-util';
 
 /** @type { SvelteStoreInit } */
-const { locale, LL, setLocale } = initI18nSvelte(loadedLocales, loadedFormatters)
+const { locale, LL, setLocale } = initI18nSvelte(loadedLocales, loadedFormatters);
 
-export { locale, LL, setLocale }
+export { locale, LL, setLocale };
 
-export default LL
+export default LL;
