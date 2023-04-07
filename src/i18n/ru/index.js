@@ -12,7 +12,7 @@ const ru = {
     title: 'Главная',
     heading: 'Твой заказ - наша мотивация',
     subheading:
-      'NEKO ist Dein kompetenter und zuverlässiger Full-Service-Partner im Bereich Veranstaltungstechnik und -management',
+      'NEKO - это ваш компетентный и надежный партнер по полному обслуживанию в области техники и управления мероприятиями',
     img_hero: '/img/index/webp/hero.webp',
     examples: {
       events: {
