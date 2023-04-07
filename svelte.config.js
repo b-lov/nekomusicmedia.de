@@ -9,6 +9,7 @@ const config = {
       split: false
     }),
     alias: {
+      $src: 'src',
       $i18n: 'src/i18n'
     }
   },
