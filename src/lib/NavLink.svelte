@@ -9,6 +9,7 @@
 <a
   href={link}
   class="flex items-center {right_align ? 'justify-end' : ' justify-center '} p-4 group"
+  on:click
 >
   <span
     class="relative font-oswald text-lg uppercase text-gray-800

@@ -1,6 +1,5 @@
 <script context="module">
   import { writable } from 'svelte/store';
-  import { navigating } from '$app/stores';
 
   export const mobileNavOpen = writable(false);
   export const toggleMenu = () => {
@@ -12,13 +11,10 @@
   import { LL, locale } from '$i18n/i18n-svelte';
   import { slide } from 'svelte/transition';
   import NavLink from '$lib/NavLink.svelte';
+  import LocaleSwitcher from '$src/lib/LocaleSwitcher.svelte';
 
   /** @type { Array.<keyof Pick<import('$i18n/i18n-types').Translation, 'about' | 'services' | 'catalog' | 'contact'>> } */
   const links = ['about', 'services', 'catalog', 'contact'];
-
-  $: if ($navigating) {
-    mobileNavOpen.set(false);
-  }
 
   /** @param { HTMLElement } node */
   const closeOnClickOutsideHeader = (node) => {
@@ -39,7 +35,14 @@
 {#if $mobileNavOpen}
   <nav class="flex flex-col" transition:slide use:closeOnClickOutsideHeader>
     {#each links as link}
-      <NavLink link="/{$locale}/{link}" text={$LL[link].title()} />
+      <NavLink
+        link="/{$locale}/{link}"
+        text={$LL[link].title()}
+        on:click={() => mobileNavOpen.set(false)}
+      />
     {/each}
+    <div class="absolute right-0 bottom-0">
+      <LocaleSwitcher />
+    </div>
   </nav>
 {/if}
