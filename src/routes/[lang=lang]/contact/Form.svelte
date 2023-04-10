@@ -38,6 +38,7 @@
 
 <!-- TODO: error messages based on current locale -->
 <form
+  lang="de"
   class="flex flex-col gap-6 w-full max-w-2xl"
   name="contact"
   method="POST"
