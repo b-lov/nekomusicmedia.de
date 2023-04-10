@@ -43,6 +43,7 @@
       {#each locales as l}
         {#if l !== $locale}
           <a
+            data-sveltekit-noscroll
             href={`${replaceLocaleInUrl($page.url, l)}`}
             class="p-4 hover:bg-gray-200 transition rounded-full flex"
           >
