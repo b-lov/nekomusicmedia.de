@@ -2,12 +2,13 @@
   import { LL, locale } from '$i18n/i18n-svelte';
   import NavLink from '$lib/NavLink.svelte';
   import DeskNavServices, { servicesNavOpen } from './DeskNavServices.svelte';
+  import LocaleSwitcher from '$lib/LocaleSwitcher.svelte';
 
   /** @type { Array.<keyof Pick<import('$i18n/i18n-types').Translation, 'about' | 'services' | 'catalog' | 'contact'>> } */
   const links = ['about', 'services', 'catalog', 'contact'];
 </script>
 
-<nav class="hidden sm:flex">
+<nav class="hidden sm:flex items-center">
   {#each links as link}
     <li
       class="list-none relative"
@@ -20,4 +21,5 @@
       {/if}
     </li>
   {/each}
+  <LocaleSwitcher />
 </nav>

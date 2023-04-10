@@ -1,5 +1,7 @@
 <script>
+  import { page } from '$app/stores';
   import { LL, locale } from '$i18n/i18n-svelte';
+  import { replaceLocaleInUrl } from '$src/utils.js';
   import Icon from '$lib/Icon.svelte';
 
   const services =
@@ -61,7 +63,11 @@
   <!-- Copyright -->
   <copyright class="text-sm text-gray-500 text-center flex flex-col gap-4">
     <hr class="border-gray-500" />
-    <p>Deutsch • English • Русский</p>
+    <p>
+      <a data-sveltekit-noscroll href={`${replaceLocaleInUrl($page.url, 'de')}`}>Deutsch • </a>
+      <a data-sveltekit-noscroll href={`${replaceLocaleInUrl($page.url, 'en')}`}>English • </a>
+      <a data-sveltekit-noscroll href={`${replaceLocaleInUrl($page.url, 'ru')}`}>Русский</a>
+    </p>
     <p>{$LL.footer.copyright({ year: new Date().getFullYear() })}</p>
   </copyright>
 </footer>

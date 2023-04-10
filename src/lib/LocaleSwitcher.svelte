@@ -1,56 +1,60 @@
 <script>
-  import { browser } from '$app/environment';
-  import { invalidateAll } from '$app/navigation';
+  import { fly } from 'svelte/transition';
   import { page } from '$app/stores';
-  import { setLocale, locale } from '$i18n/i18n-svelte';
+  import { locale } from '$i18n/i18n-svelte';
   import { locales } from '$i18n/i18n-util';
-  import { loadLocaleAsync } from '$i18n/i18n-util.async';
-  import { replaceLocaleInUrl } from 'utils.js';
+  import { replaceLocaleInUrl } from '$src/utils.js';
+  import Icon from './Icon.svelte';
 
-  /** @param {Locales} newLocale */
-  const switchLocale = async (newLocale, updateHistoryState = true) => {
-    if (!newLocale || $locale === newLocale) return;
+  export let open = false;
 
-    // load new dictionary from server
-    await loadLocaleAsync(newLocale);
-
-    // select locale
-    setLocale(newLocale);
-
-    // update `lang` attribute
-    document.querySelector('html')?.setAttribute('lang', newLocale);
-
-    if (updateHistoryState) {
-      // update url to reflect locale changes
-      history.pushState({ locale: newLocale }, '', replaceLocaleInUrl($page.url, newLocale));
-    }
-
-    // run the `load` function again
-    invalidateAll();
+  /** @param { HTMLElement } node */
+  const closeOnClickOutside = (node) => {
+    /** @param { MouseEvent } event */
+    const handleClick = (event) => {
+      if (!event.composedPath().includes(node)) open = false;
+    };
+    document.addEventListener('click', handleClick);
+    return {
+      destroy() {
+        document.removeEventListener('click', handleClick);
+      }
+    };
   };
-
-  // update locale when navigating via browser back/forward buttons
-  /** @param { PopStateEvent } event */
-  const handlePopStateEvent = async ({ state }) => switchLocale(state.locale, false);
-
-  // update locale when page store changes
-  $: if (browser) {
-    const lang = /** @type {Locales} */ ($page.params.lang);
-    switchLocale(lang, false);
-    history.replaceState(
-      { ...history.state, locale: lang },
-      '',
-      replaceLocaleInUrl($page.url, lang)
-    );
-  }
 </script>
 
-<svelte:window on:popstate={handlePopStateEvent} />
-
-<div class="flex gap-2">
-  {#each locales as l}
-    <a type="button" href={`${replaceLocaleInUrl($page.url, l)}`}>
-      {l}
-    </a>
-  {/each}
-</div>
+<button
+  class="p-4 relative hover:bg-gray-200 transition rounded-full"
+  on:click={() => (open = !open)}
+  use:closeOnClickOutside
+>
+  {#key $locale}
+    <Icon
+      class="rounded-full overflow-hidden border border-gray-800 relative"
+      name="flag_{$locale}"
+      size={1.7}
+    />
+  {/key}
+  {#if open}
+    <div
+      class="absolute bg-white border -translate-x-1/2 left-1/2 top-14"
+      transition:fly={{ y: 10 }}
+    >
+      {#each locales as l}
+        {#if l !== $locale}
+          <a
+            data-sveltekit-noscroll
+            href={`${replaceLocaleInUrl($page.url, l)}`}
+            class="p-4 hover:bg-gray-200 transition rounded-full flex"
+          >
+            <Icon
+              class="rounded-full overflow-hidden border border-gray-800"
+              name="flag_{l}"
+              size={1.7}
+            />
+          </a>
+        {/if}
+      {/each}
+    </div>
+  {/if}
+</button>
