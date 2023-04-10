@@ -1,7 +1,0 @@
-TODO: enhance and add language switcher
-TODO: add translations
-TODO: add dark mode
-TODO: add tawk chat
-TODO: work through edge issues/suggestions
-TODO: seo
-TODO: fun intersectionobserver stuff
