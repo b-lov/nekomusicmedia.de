@@ -267,7 +267,8 @@ const de = {
     title: 'News',
     heading: 'Aktuelles',
     subheading: 'Hier findest Du alle Neuigkeiten rund um NEKO.',
-    img_hero: '/img/news/webp/hero.webp'
+    img_hero: '/img/news/webp/hero.webp',
+    more_button: 'auf Instagram ansehen'
   },
   contact: {
     title: 'Kontakt',

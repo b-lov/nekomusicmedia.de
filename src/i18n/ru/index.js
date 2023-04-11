@@ -266,7 +266,8 @@ const ru = {
     title: 'Новости',
     heading: 'Актуальное',
     subheading: 'Все новости из мира NEKO.',
-    img_hero: '/img/news/webp/hero.webp'
+    img_hero: '/img/news/webp/hero.webp',
+    more_button: 'смотреть в Инстаграме'
   },
   contact: {
     title: 'Контакт',

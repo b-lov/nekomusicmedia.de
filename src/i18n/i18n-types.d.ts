@@ -762,6 +762,10 @@ type RootTranslation = {
 		 * /​i​m​g​/​n​e​w​s​/​w​e​b​p​/​h​e​r​o​.​w​e​b​p
 		 */
 		img_hero: string
+		/**
+		 * a​u​f​ ​I​n​s​t​a​g​r​a​m​ ​a​n​s​e​h​e​n
+		 */
+		more_button: string
 	}
 	contact: {
 		/**
@@ -1627,6 +1631,10 @@ export type TranslationFunctions = {
 		 * /img/news/webp/hero.webp
 		 */
 		img_hero: () => LocalizedString
+		/**
+		 * auf Instagram ansehen
+		 */
+		more_button: () => LocalizedString
 	}
 	contact: {
 		/**
