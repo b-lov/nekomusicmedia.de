@@ -13,12 +13,12 @@
 />
 
 <main class="flex flex-row flex-wrap px-4 py-12 gap-8 justify-center max-w-7xl mx-auto">
-  {#each data.insta as post}
+  {#each data.insta as { media_type, media_url, thumbnail_url, caption, permalink, timestamp }}
     <NewsCard
-      img={post.thumbnail_url}
-      caption={post.caption}
-      link={post.permalink}
-      date={post.timestamp}
+      media_url={media_type === 'IMAGE' ? media_url : thumbnail_url}
+      {caption}
+      {permalink}
+      {timestamp}
     />
   {/each}
 </main>
