@@ -262,6 +262,12 @@ const ru = {
       }
     }
   },
+  news: {
+    title: 'Новости',
+    heading: 'Актуальное',
+    subheading: 'Все новости из мира NEKO.',
+    img_hero: '/img/news/webp/hero.webp'
+  },
   contact: {
     title: 'Контакт',
     heading: 'Свяжитесь с нами',

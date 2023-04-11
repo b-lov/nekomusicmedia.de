@@ -5,7 +5,7 @@
   import LocaleSwitcher from '$lib/LocaleSwitcher.svelte';
 
   /** @type { Array.<keyof Pick<import('$i18n/i18n-types').Translation, 'about' | 'services' | 'catalog' | 'contact'>> } */
-  const links = ['about', 'services', 'catalog', 'contact'];
+  const links = ['about', 'services', 'catalog', 'news', 'contact'];
 </script>
 
 <nav class="hidden sm:flex items-center">
