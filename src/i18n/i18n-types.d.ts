@@ -585,7 +585,7 @@ type RootTranslation = {
 	}
 	catalog: {
 		/**
-		 * M​i​e​t​k​a​t​a​l​o​g
+		 * M​i​e​t​e​n
 		 */
 		title: string
 		/**
@@ -744,6 +744,28 @@ type RootTranslation = {
 				}
 			}
 		}
+	}
+	news: {
+		/**
+		 * N​e​w​s
+		 */
+		title: string
+		/**
+		 * A​k​t​u​e​l​l​e​s
+		 */
+		heading: string
+		/**
+		 * H​i​e​r​ ​f​i​n​d​e​s​t​ ​D​u​ ​a​l​l​e​ ​N​e​u​i​g​k​e​i​t​e​n​ ​r​u​n​d​ ​u​m​ ​N​E​K​O​.
+		 */
+		subheading: string
+		/**
+		 * /​i​m​g​/​n​e​w​s​/​w​e​b​p​/​h​e​r​o​.​w​e​b​p
+		 */
+		img_hero: string
+		/**
+		 * a​u​f​ ​I​n​s​t​a​g​r​a​m​ ​a​n​s​e​h​e​n
+		 */
+		more_button: string
 	}
 	contact: {
 		/**
@@ -1432,7 +1454,7 @@ export type TranslationFunctions = {
 	}
 	catalog: {
 		/**
-		 * Mietkatalog
+		 * Mieten
 		 */
 		title: () => LocalizedString
 		/**
@@ -1591,6 +1613,28 @@ export type TranslationFunctions = {
 				}
 			}
 		}
+	}
+	news: {
+		/**
+		 * News
+		 */
+		title: () => LocalizedString
+		/**
+		 * Aktuelles
+		 */
+		heading: () => LocalizedString
+		/**
+		 * Hier findest Du alle Neuigkeiten rund um NEKO.
+		 */
+		subheading: () => LocalizedString
+		/**
+		 * /img/news/webp/hero.webp
+		 */
+		img_hero: () => LocalizedString
+		/**
+		 * auf Instagram ansehen
+		 */
+		more_button: () => LocalizedString
 	}
 	contact: {
 		/**
