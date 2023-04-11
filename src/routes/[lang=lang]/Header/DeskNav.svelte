@@ -4,7 +4,9 @@
   import DeskNavServices, { servicesNavOpen } from './DeskNavServices.svelte';
   import LocaleSwitcher from '$lib/LocaleSwitcher.svelte';
 
-  /** @type { Array.<keyof Pick<import('$i18n/i18n-types').Translation, 'about' | 'services' | 'catalog' | 'contact'>> } */
+  /**
+   * @type { Array.<keyof Pick<import('$i18n/i18n-types').Translation, 'about' | 'services' | 'catalog' | 'news' | 'contact'>> }
+   */
   const links = ['about', 'services', 'catalog', 'news', 'contact'];
 </script>
 

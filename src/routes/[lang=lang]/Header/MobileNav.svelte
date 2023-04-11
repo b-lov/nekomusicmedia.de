@@ -13,8 +13,10 @@
   import NavLink from '$lib/NavLink.svelte';
   import LocaleSwitcher from '$src/lib/LocaleSwitcher.svelte';
 
-  /** @type { Array.<keyof Pick<import('$i18n/i18n-types').Translation, 'about' | 'services' | 'catalog' | 'contact'>> } */
-  const links = ['about', 'services', 'catalog', 'contact'];
+  /**
+   * @type { Array.<keyof Pick<import('$i18n/i18n-types').Translation, 'about' | 'services' | 'catalog' | 'news' | 'contact'>> }
+   */
+  const links = ['about', 'services', 'catalog', 'news', 'contact'];
 
   /** @param { HTMLElement } node */
   const closeOnClickOutsideHeader = (node) => {
