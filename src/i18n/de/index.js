@@ -198,7 +198,7 @@ const de = {
     }
   },
   catalog: {
-    title: 'Mieten',
+    title: 'Katalog',
     heading: 'Mieten statt kaufen',
     subheading: 'Wir stellen eine breite Palette an Equipment für Dein Event zur Verfügung.',
     img_hero: '/img/catalog/webp/hero.webp',

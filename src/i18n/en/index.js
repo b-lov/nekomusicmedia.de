@@ -198,7 +198,7 @@ const en = {
     }
   },
   catalog: {
-    title: 'Rentals',
+    title: 'Catalog',
     heading: "Don't buy - rent!",
     subheading: 'We offer a wide range of equipment for your event.',
     img_hero: '/img/catalog/webp/hero.webp',

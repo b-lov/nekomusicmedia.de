@@ -197,7 +197,7 @@ const ru = {
     }
   },
   catalog: {
-    title: 'Аренда',
+    title: 'Каталог',
     heading: 'Арендуйте вместо покупки',
     subheading: 'Мы предлагаем широкий ассортимент оборудования для вашего мероприятия.',
     img_hero: '/img/catalog/webp/hero.webp',
