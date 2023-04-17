@@ -1,29 +1,35 @@
 import { readFile } from 'fs/promises';
 
 export async function load() {
-  const products = [];
-  const product_groups = new Set();
-  const excluded_groups = ['Zahlungen ', 'Personaltagessätze', 'Personalstundensätze'];
   const csv = await readFile('./static/catalog.csv', 'binary');
   const lines = csv.split('\n');
-  const headings = lines[0].split('\t');
+  const headers = lines[0].split('\t');
+  const categories = new Set();
+  const excluded_categories = ['Zahlungen ', 'Personaltagessätze', 'Personalstundensätze'];
+  /** @type {Object<string, Array<Object<string, string>>>} */
+  const products = {};
 
-  // create json from csv
   for (let i = 1; i < lines.length; i++) {
-    const cells = lines[i].split('\t');
-    /** @type {{[key: string]: string}} */
-    const obj = {};
-    for (let j = 0; j < headings.length; j++) {
-      obj[headings[j]] = cells[j];
+    const values = lines[i].split('\t');
+    const category = values[headers.indexOf('Artikelgruppe')];
+
+    if (!category || excluded_categories.includes(category)) continue;
+    categories.add(category);
+
+    if (!products[category]) {
+      products[category] = [];
     }
-    products.push(obj);
+
+    /** @type {Object<string, string>} */
+    const row = {};
+    headers.forEach((header, index) => {
+      if (header !== '') {
+        row[header] = values[index];
+      }
+    });
+
+    products[category].push(row);
   }
 
-  products.forEach((obj) => {
-    if (obj['Artikelgruppe'] && !excluded_groups.includes(obj['Artikelgruppe'])) {
-      product_groups.add(obj['Artikelgruppe']);
-    }
-  });
-
-  return { products, product_groups: Array.from(product_groups), excluded_groups };
+  return { products };
 }
