@@ -4,20 +4,11 @@
   import Icon from '$src/lib/Icon.svelte';
   import { onMount } from 'svelte';
   import { fly } from 'svelte/transition';
+  import Table from './Table.svelte';
 
   export let data;
 
-  const getProductGroups = () => {
-    const groups = new Set();
-    data.items.forEach((obj) => {
-      if (obj['Artikelgruppe'] && !excluded_groups.includes(obj['Artikelgruppe'])) {
-        groups.add(obj['Artikelgruppe']);
-      }
-    });
-    return Array.from(groups);
-  };
-
-  const excluded_groups = ['Zahlungen ', 'Personaltagessätze', 'Personalstundensätze'];
+  const { products, product_groups, excluded_groups } = data;
 
   let showSidebar = false;
   let sideBarCollapsed = false;
@@ -44,28 +35,7 @@
   subheading={$LL.catalog.subheading()}
 />
 
-<section
-  class="prose prose-sm max-w-none px-4 pb-8 sm:prose-base prose-headings:font-medium
-  prose-h1:mt-12 prose-h1:font-oswald prose-h2:font-oswald"
->
-  <table class="mx-auto max-w-4xl table-auto">
-    <tbody>
-      <div id={data.items[0]['Artikelgruppe']} class="-mt-8 h-8" />
-      <h1>{data.items[0]['Artikelgruppe']}</h1>
-      {#each data.items as item, i}
-        {#if item['Artikelgruppe'] && !excluded_groups.includes(item['Artikelgruppe'])}
-          {#if i > 0 && data.items[i - 1]['Artikelgruppe'] !== item['Artikelgruppe']}
-            <div id={item['Artikelgruppe']} class="-mt-8 h-8" />
-            <h1>{item['Artikelgruppe']}</h1>
-          {/if}
-          <tr class="hover:bg-gray-300">
-            <td>{item['Artikelname Verkauf']}</td>
-          </tr>
-        {/if}
-      {/each}
-    </tbody>
-  </table>
-</section>
+<Table {products} {excluded_groups} />
 
 {#if showSidebar}
   <aside
@@ -75,7 +45,7 @@
   >
     <div class="prose flex flex-col items-end gap-2 overflow-auto bg-white p-6">
       <h3 class="font-oswald">Kategorien</h3>
-      {#each getProductGroups() as group}
+      {#each product_groups as group}
         <button
           class="text-gray-500 hover:text-gray-900"
           on:click={() => {
