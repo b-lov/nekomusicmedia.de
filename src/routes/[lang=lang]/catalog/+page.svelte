@@ -7,7 +7,6 @@
   export let data;
 
   const { products } = data;
-  const categories = Object.keys(products);
 </script>
 
 <Hero
@@ -16,8 +15,6 @@
   subheading={$LL.catalog.subheading()}
 />
 
-<Table {products} {categories} />
+<Table {products} />
 
-<Sidebar {categories} />
-
-<!-- <ScrollTopButton /> -->
+<Sidebar {products} />

@@ -9,6 +9,7 @@ export async function load() {
   /** @type {Object<string, Array<Object<string, string>>>} */
   const products = {};
 
+  // create object with the product data grouped by category
   for (let i = 1; i < lines.length; i++) {
     const values = lines[i].split('\t');
     const category = values[headers.indexOf('Artikelgruppe')];

@@ -2,27 +2,12 @@
   import { fly } from 'svelte/transition';
   import { onMount } from 'svelte';
   import Icon from '$src/lib/Icon.svelte';
-  import ScrollTopButton from './ScrollTopButton.svelte';
 
-  /** @type {Array<string>} */
-  export let categories;
+  /** @type {Object<string, Array<Object<string, string>>>} */
+  export let products;
 
   let show = false;
   let collapsed = false;
-
-  /** @param { HTMLElement } node */
-  const closeOnClickOutside = (node) => {
-    /** @param { MouseEvent } event */
-    const handleClick = (event) => {
-      if (!event.composedPath().includes(node)) collapsed = true;
-    };
-    document.addEventListener('click', handleClick);
-    return {
-      destroy() {
-        document.removeEventListener('click', handleClick);
-      }
-    };
-  };
 
   onMount(() => {
     // start in collapsed state on small screens
@@ -30,12 +15,11 @@
       collapsed = true;
     }
 
+    // show sidebar when hero is almost out of sight
+    const intersector = /** @type {HTMLElement} */ (document.getElementById('hero'));
     const observer = new IntersectionObserver((entries) => (show = !entries[0].isIntersecting), {
       rootMargin: '-15%'
     });
-
-    // show sidebar when hero is almost out of sight
-    const intersector = /** @type {HTMLElement} */ (document.getElementById('hero'));
     observer.observe(intersector);
     return () => observer.unobserve(intersector);
   });
@@ -44,13 +28,12 @@
 {#if show}
   <aside
     transition:fly
-    use:closeOnClickOutside
     class="fixed right-0 top-0 flex h-full shadow-lg transition
     {collapsed && 'translate-x-full'}"
   >
     <div class="prose flex flex-col items-end gap-2 overflow-auto bg-white p-6">
       <h3 class="font-oswald">Kategorien</h3>
-      {#each categories as category}
+      {#each Object.keys(products) as category}
         <button
           class="text-gray-500 hover:text-gray-900"
           on:click={() => {
@@ -64,6 +47,7 @@
       {/each}
     </div>
     <button
+      id="toggle-sidebar"
       class="absolute bottom-0 left-0 -ml-12 flex aspect-square h-12 w-12 items-center
       justify-center border-l border-t bg-white hover:bg-gray-100"
       on:click={() => {
@@ -74,6 +58,7 @@
     </button>
   </aside>
   <button
+    id="scroll-to-top"
     transition:fly
     class="fixed bottom-6 left-6 rounded-full bg-gray-800 p-4 shadow-lg hover:bg-gray-600"
     on:click={() => {
