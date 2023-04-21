@@ -20,16 +20,11 @@
 
   onMount(() => {
     // start in collapsed state on small screens
-    if (window.innerWidth < 640) {
-      collapsed = true;
-    }
+    if (window.innerWidth < 640) collapsed = true;
     // show sidebar when hero is almost out of sight
-    const observer = new IntersectionObserver(
-      (entries) => {
-        visible = !entries[0].isIntersecting;
-      },
-      { rootMargin: '-20%' }
-    );
+    const observer = new IntersectionObserver((entries) => (visible = !entries[0].isIntersecting), {
+      rootMargin: '-20%'
+    });
     const hero = document.getElementById('hero');
     hero && observer.observe(hero);
     return () => hero && observer.unobserve(hero);
