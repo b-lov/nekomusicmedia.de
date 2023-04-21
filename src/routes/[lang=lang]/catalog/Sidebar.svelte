@@ -27,9 +27,8 @@
 
 {#if show}
   <aside
+    class="fixed right-0 top-0 flex h-full shadow-lg transition {collapsed && 'translate-x-full'}"
     transition:fly
-    class="fixed right-0 top-0 flex h-full shadow-lg transition
-    {collapsed && 'translate-x-full'}"
   >
     <div class="prose flex flex-col items-end gap-2 overflow-auto bg-white p-6">
       <h3 class="font-oswald">Kategorien</h3>
@@ -47,9 +46,9 @@
       {/each}
     </div>
     <button
-      id="toggle-sidebar"
       class="absolute bottom-0 left-0 -ml-12 flex aspect-square h-12 w-12 items-center
       justify-center border-l border-t bg-white hover:bg-gray-100"
+      id="toggle-sidebar"
       on:click={() => {
         collapsed = !collapsed;
       }}
@@ -58,9 +57,9 @@
     </button>
   </aside>
   <button
+    class="fixed bottom-12 left-6 rounded-full bg-gray-800 p-4 shadow-lg hover:bg-gray-600"
     id="scroll-to-top"
     transition:fly
-    class="fixed bottom-6 left-6 rounded-full bg-gray-800 p-4 shadow-lg hover:bg-gray-600"
     on:click={() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }}
