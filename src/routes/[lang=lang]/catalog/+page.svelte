@@ -42,4 +42,4 @@
   <Table filtered_products={filteredProducts()} {search_term} {table_field} />
 </section>
 
-<Sidebar {products} />
+<Sidebar products={filteredProducts()} />
