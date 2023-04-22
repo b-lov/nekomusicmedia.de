@@ -38,7 +38,7 @@
 
 <!-- TODO: error messages based on current locale -->
 <form
-  class="flex flex-col gap-6 w-full max-w-2xl"
+  class="flex w-full max-w-2xl flex-col gap-6"
   name="contact"
   method="POST"
   use:enhance={() => {
@@ -64,7 +64,7 @@
   }}
 >
   <div class="flex flex-col gap-2">
-    <label class="text-sm hidden" for="name">{$LL.contact.form.name()}</label>
+    <label class="hidden text-sm" for="name">{$LL.contact.form.name()}</label>
     <input
       bind:value={$messageData.name}
       type="text"
@@ -78,7 +78,7 @@
     />
   </div>
   <div class="flex flex-col gap-2">
-    <label class="text-sm hidden" for="email">{$LL.contact.form.email()}</label>
+    <label class="hidden text-sm" for="email">{$LL.contact.form.email()}</label>
     <input
       bind:value={$messageData.email}
       type="email"
@@ -90,7 +90,7 @@
     />
   </div>
   <div class="flex flex-col gap-2">
-    <label class="text-sm hidden" for="tel">{$LL.contact.form.tel()}</label>
+    <label class="hidden text-sm" for="tel">{$LL.contact.form.tel()}</label>
     <input
       bind:value={$messageData.tel}
       type="tel"
@@ -103,7 +103,7 @@
     />
   </div>
   <div class="flex flex-col gap-2">
-    <label class="text-sm hidden" for="message">{$LL.contact.form.message()}</label>
+    <label class="hidden text-sm" for="message">{$LL.contact.form.message()}</label>
     <textarea
       bind:value={$messageData.message}
       name="message"
@@ -116,8 +116,8 @@
   </div>
   <div class="flex flex-row gap-2">
     <input
-      class="p-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 mt-1
-			border-gray-300 focus:ring-gray-500 shadow"
+      class="mt-1 border-gray-300 p-2 text-gray-800 shadow focus:outline-none
+			focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
       bind:checked={privacyChecked}
       type="checkbox"
       name="privacy"
@@ -129,7 +129,7 @@
     </label>
   </div>
   {#if !submitting}
-    <button on:mousedown={() => trimWhitespace()} class="self-center button-dark">
+    <button on:mousedown={() => trimWhitespace()} class="button-dark self-center">
       {$LL.contact.form.send_button()}
     </button>
   {:else}
@@ -144,8 +144,8 @@
 <style lang="postcss">
   input:not([id='privacy']),
   textarea {
-    @apply p-3 border border-gray-300 shadow-md focus:outline-none focus:ring-2
-				focus:ring-offset-2 focus:ring-gray-500 placeholder:text-gray-400;
+    @apply border border-gray-300 p-3 shadow-md placeholder:text-gray-400 focus:outline-none
+				focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
     &:invalid:not(:placeholder-shown) {
       @apply bg-red-50;
     }
