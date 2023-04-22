@@ -4,7 +4,7 @@
   import { locale } from '$i18n/i18n-svelte';
   import { locales } from '$i18n/i18n-util';
   import { replaceLocaleInUrl } from '$src/utils.js';
-  import Icon from './Icon.svelte';
+  import Icon from '../../../lib/Icon.svelte';
 
   export let open = false;
 
@@ -24,20 +24,20 @@
 </script>
 
 <button
-  class="p-4 relative hover:bg-gray-200 transition rounded-full"
+  class="relative rounded-full p-4 transition hover:bg-gray-200"
   on:click={() => (open = !open)}
   use:closeOnClickOutside
 >
   {#key $locale}
     <Icon
-      class="rounded-full overflow-hidden border border-gray-800 relative"
+      class="relative overflow-hidden rounded-full border border-gray-800"
       name="flag_{$locale}"
       size={1.7}
     />
   {/key}
   {#if open}
     <div
-      class="absolute bg-white border -translate-x-1/2 left-1/2 top-14"
+      class="absolute left-1/2 top-14 -translate-x-1/2 border bg-white"
       transition:fly={{ y: 10 }}
     >
       {#each locales as l}
@@ -45,10 +45,10 @@
           <a
             data-sveltekit-noscroll
             href={`${replaceLocaleInUrl($page.url, l)}`}
-            class="p-4 hover:bg-gray-200 transition rounded-full flex"
+            class="flex rounded-full p-4 transition hover:bg-gray-200"
           >
             <Icon
-              class="rounded-full overflow-hidden border border-gray-800"
+              class="overflow-hidden rounded-full border border-gray-800"
               name="flag_{l}"
               size={1.7}
             />
