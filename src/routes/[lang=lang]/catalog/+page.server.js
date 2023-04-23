@@ -1,7 +1,28 @@
 import { readFile } from 'fs/promises';
 
 export async function load() {
-  const csv = await readFile('./static/catalog.csv', 'binary');
+  let csv = '';
+
+  const response = await fetch(
+    'https://nekomusicmedia.musiker-job-s1.de/Berichtedrucken.php?' +
+      new URLSearchParams([
+        ['FilterArt', 'Export_Vermietbestand'],
+        ['TechnikSpeichern', '1']
+      ]),
+    {
+      headers: { cookie: import.meta.env.VITE_MUSIKERJOB_SESSION_ID }
+    }
+  );
+
+  const buffer = await response.arrayBuffer();
+  const decoded = new TextDecoder('iso-8859-1').decode(buffer);
+
+  if (decoded.charAt(0) !== 'A') {
+    csv = await readFile('./static/catalog.csv', 'binary');
+  } else {
+    csv = decoded;
+  }
+
   const lines = csv.split('\n');
   const headers = lines[0].split('\t');
   const categories = new Set();
