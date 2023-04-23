@@ -1,31 +1,25 @@
 <script>
-  import items from './catalog-data';
   import LL from '$i18n/i18n-svelte';
   import Hero from '$lib/Hero.svelte';
+  import Table from './Table.svelte';
+  import Sidebar from './Sidebar.svelte';
 
-  var formatter = new Intl.NumberFormat('de-DE', {
-    style: 'currency',
-    currency: 'EUR'
-  });
+  export let data;
 
-  /** @typedef {keyof import('$i18n/i18n-types').Translation['catalog']['categories']} categoryTranslation */
-  /** @typedef {keyof import('$i18n/i18n-types').Translation['catalog']['categories'][categoryTranslation]['subcategories']} subcategoryTranslation */
+  const { products } = data;
+  let search_term = '';
+  const table_field = 'Artikelname Vermietung';
 
-  /** @param {Object} category */
-  const categoryHeading = (category) => {
-    const categoryName = /** @type {categoryTranslation} */ (Object.keys(category)[0]);
-    return $LL.catalog.categories[categoryName].title();
-  };
-
-  /**
-   * @param {Object} category,
-   * @param {Object} subcategory
-   */
-  const subcategoryHeading = (category, subcategory) => {
-    const categoryName = /** @type {categoryTranslation} */ (Object.keys(category)[0]);
-    const subcategoryName = Object.keys(subcategory)[0];
-    // @ts-ignore
-    return $LL.catalog.categories[categoryName].subcategories[subcategoryName]();
+  $: filteredProducts = () => {
+    if (search_term.trim() === '') return products;
+    /** @type {Object<string, Array<Object<string, string>>>} */
+    const result = {};
+    for (const category of Object.keys(products)) {
+      result[category] = products[category].filter((product) =>
+        product[table_field].toLowerCase().includes(search_term.toLowerCase())
+      );
+    }
+    return result;
   };
 </script>
 
@@ -35,33 +29,17 @@
   subheading={$LL.catalog.subheading()}
 />
 
-<main
-  class="prose prose-sm sm:prose-base max-w-4xl mx-auto px-4 py-8 prose-h1:font-oswald prose-h2:font-oswald prose-headings:font-medium"
+<section
+  class="prose prose-sm mx-auto max-w-4xl px-4 py-8 sm:prose-base
+  prose-h1:mt-12 prose-h1:font-oswald prose-h1:font-medium"
 >
-  {#each items as category}
-    <section class="pb-4">
-      <h1>{categoryHeading(category)}</h1>
-      {#each Object.values(category)[0] as subcategory}
-        <h2>{subcategoryHeading(category, subcategory)}</h2>
-        <table class="table-auto">
-          <thead>
-            <tr>
-              <th>{$LL.catalog.table.manufacturer()}</th>
-              <th>{$LL.catalog.table.model()}</th>
-              <th class="text-right">{$LL.catalog.table.price()}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {#each Object.values(subcategory)[0] as product}
-              <tr class="hover:bg-gray-300">
-                <td>{product.manufacturer}</td>
-                <td>{product.model}</td>
-                <td class="text-right">{formatter.format(product.price)}</td>
-              </tr>
-            {/each}
-          </tbody>
-        </table>
-      {/each}
-    </section>
-  {/each}
-</main>
+  <input
+    class="border border-gray-300 p-3 shadow-md placeholder:text-gray-400
+    focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+    bind:value={search_term}
+    placeholder="Suchen"
+  />
+  <Table filtered_products={filteredProducts()} {search_term} {table_field} />
+</section>
+
+<Sidebar products={filteredProducts()} />

@@ -11,7 +11,7 @@
   import { LL, locale } from '$i18n/i18n-svelte';
   import { slide } from 'svelte/transition';
   import NavLink from '$lib/NavLink.svelte';
-  import LocaleSwitcher from '$src/lib/LocaleSwitcher.svelte';
+  import LocaleSwitcher from './LocaleSwitcher.svelte';
 
   /**
    * @type { Array.<keyof Pick<import('$i18n/i18n-types').Translation, 'about' | 'services' | 'catalog' | 'news' | 'contact'>> }
@@ -43,7 +43,7 @@
         on:click={() => mobileNavOpen.set(false)}
       />
     {/each}
-    <div class="absolute right-0 bottom-0">
+    <div class="absolute bottom-0 right-0">
       <LocaleSwitcher />
     </div>
   </nav>
