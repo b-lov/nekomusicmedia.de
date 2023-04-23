@@ -1,4 +1,4 @@
-import { readFile } from 'fs/promises';
+import csvfile from '/static/catalog.csv?raw';
 
 export async function load() {
   let csv = '';
@@ -18,7 +18,7 @@ export async function load() {
   const decoded = new TextDecoder('iso-8859-1').decode(buffer);
 
   if (decoded.charAt(0) !== 'A') {
-    csv = await readFile('./static/catalog.csv', 'binary');
+    csv = csvfile;
   } else {
     csv = decoded;
   }
