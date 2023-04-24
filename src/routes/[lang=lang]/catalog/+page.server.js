@@ -26,7 +26,15 @@ export async function load() {
   const lines = csv.split('\n');
   const headers = lines[0].split('\t');
   const categories = new Set();
-  const excluded_categories = ['Zahlungen ', 'Personaltagessätze', 'Personalstundensätze'];
+  const excluded_categories = [
+    'Zahlungen ',
+    'Personaltagessätze',
+    'Personalstundensätze',
+    'Transportgeräte',
+    'Case (Gerätetransport)',
+    'Fahrzeuge (Anhänger usw.)',
+    'Kraftfahrzeuge (PKW, LKW usw.)'
+  ];
   /** @type {Object<string, Array<Object<string, string>>>} */
   const products = {};
 
