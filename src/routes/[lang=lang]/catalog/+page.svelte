@@ -10,7 +10,7 @@
   let search_term = '';
   const table_field = 'Artikelname Vermietung';
 
-  // TODO: '*' string breaks the search
+  // TODO: allow searching for literal '*'
   $: filteredProducts = () => {
     if (search_term.trim() === '') return products;
     const escapedSearchTerm = search_term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
