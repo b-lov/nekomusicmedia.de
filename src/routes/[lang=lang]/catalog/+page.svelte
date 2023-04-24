@@ -10,13 +10,15 @@
   let search_term = '';
   const table_field = 'Artikelname Vermietung';
 
+  // TODO: '*' string breaks the search
   $: filteredProducts = () => {
     if (search_term.trim() === '') return products;
+    const escapedSearchTerm = search_term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     /** @type {Object<string, Array<Object<string, string>>>} */
     const result = {};
     for (const category of Object.keys(products)) {
       result[category] = products[category].filter((product) =>
-        product[table_field].toLowerCase().includes(search_term.toLowerCase())
+        product[table_field].toLowerCase().includes(escapedSearchTerm.toLowerCase())
       );
     }
     return result;
