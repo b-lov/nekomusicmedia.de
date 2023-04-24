@@ -45,6 +45,9 @@ export async function load() {
     const category = values[headers.indexOf('Artikelgruppe')];
 
     if (!category || excluded_categories.includes(category)) continue;
+
+    if (values[headers.indexOf('Artikelname Vermietung')].endsWith('***')) continue;
+
     categories.add(category);
 
     if (!products[category]) {
