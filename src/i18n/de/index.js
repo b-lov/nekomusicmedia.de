@@ -89,7 +89,7 @@ const de = {
         title: 'Tontechnik',
         subtitle: 'Wir sorgen für guten Ton',
         teaser:
-          'NEKO liefert optimale Beschallung, egal welche technischen Herausforderungen der Veranstaltungsort mit sich bringen mag.',
+          'Optimale Beschallung trotz aller technischer Herausforderungen des Veranstaltungsorts.',
         par1: 'Ob Tagungen, Hotels oder Konzerthallen – die technischen und örtlichen Gegebenheiten sind in jeder Location unterschiedlich und beeinflussen die Klangqualität in entscheidendem Maße. Sauberer Klang ist eine unabdingbare Komponente für den Erfolg Deiner Veranstaltung. NEKO liefert die optimale Beschallung, egal welche Herausforderungen der Veranstaltungsort mit sich bringen mag.',
         bullets: [
           'Aktive und Passive Lautsprecher',
@@ -106,7 +106,7 @@ const de = {
       light: {
         title: 'Lichttechnik',
         subtitle: 'Wir bringen Licht ins Dunkel',
-        teaser: 'Bewegtes Licht, LED oder beides? Bühne, Show oder Messestand? Licht ist Pflicht!',
+        teaser: 'Konzert, Theater, Messe, Konferenz oder Party - Licht ist Pflicht!',
         par1: 'Bewegtes Licht, LED oder beides? Bühne, Show oder Messestand? Eins steht fest: Licht ist Pflicht und Du hast die Wahl. NEKO hat einen außergewöhnlich breiten Lichttechnik-Park, der keinen Deiner Wünsche offen lässt. Verzaubere Dein Publikum und profitiere von modernen, spektakulären Lichteffekten.',
         bullets: [
           'Kunst- und Tageslichtscheinwerfer',
