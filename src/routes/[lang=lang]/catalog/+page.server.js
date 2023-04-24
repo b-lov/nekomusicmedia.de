@@ -33,7 +33,8 @@ export async function load() {
     'Transportgeräte',
     'Case (Gerätetransport)',
     'Fahrzeuge (Anhänger usw.)',
-    'Kraftfahrzeuge (PKW, LKW usw.)'
+    'Kraftfahrzeuge (PKW, LKW usw.)',
+    'Transport'
   ];
   /** @type {Object<string, Array<Object<string, string>>>} */
   const products = {};
